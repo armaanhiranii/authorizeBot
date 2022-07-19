@@ -1,6 +1,8 @@
 # authorizeBot
 
-Python implementation of scraping the most recent settlements on Authorize.net with Selenium and returning the downloaded text file. I am currently working on two new features to the bot. One to read the text file into an existing Excel file, and another to grab a screenshot of the Authorize page to use as backup per company procedure.
+Python implementation of scraping the most recent settlements on Authorize.net with Selenium and returning the downloaded text file. <br />
+
+I am currently working on two new features to the bot. One to read the text file into an existing Excel file, and another to grab a screenshot of the Authorize page to use as backup per company procedure.
 
 There are currently three scripts:
 
