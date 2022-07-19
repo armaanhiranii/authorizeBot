@@ -17,5 +17,6 @@ What I used: <br />
 Python 3.10.4 <br />
 Selenium 4.3.0 <br />
 Google Chrome 103.0.5060.114 <br />
+ChromeDriver 103.0.5060.53 <br />
 Visual Studio Code 1.68.1 <br />
 mac OS Monterey <br />
