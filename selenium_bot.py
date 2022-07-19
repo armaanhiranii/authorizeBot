@@ -80,4 +80,3 @@ def authorize_bot():
     time.sleep(5)
 
 
-authorize_bot()
