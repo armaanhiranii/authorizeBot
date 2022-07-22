@@ -23,7 +23,7 @@ def authorize_bot():
 
 
     password = browser.find_element(By.NAME, "input-password")
-    password.send_keys("13-Characters")
+    password.send_keys("Br1ngmemymoney$")
     password.send_keys(Keys.RETURN)
 
     time.sleep(3)
