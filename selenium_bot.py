@@ -11,9 +11,9 @@ import time
 
 def authorize_bot():
 
-    s = Service("/Users/armaanhirani/Desktop/selenium bot/chromedriver")
+    s = Service(r"C:\Users\conf.asst5\Desktop\authorize_bot_clone\authorizeBot\chromedriver.exe")
     browser = webdriver.Chrome(service=s)
-    url = 'https://account.authorize.net/ui/themes/anet/merch.aspx?page=search&sub=batchlist'
+    url = 'https://login.authorize.net/'
     browser.get(url)
 
     time.sleep(2)
@@ -39,13 +39,17 @@ def authorize_bot():
 
     to_batch.select_by_index(2)
 
-    to_batch_return = browser.find_element(By.NAME, 'EndBatch')
-    to_batch_return.send_keys(Keys.RETURN)
+    #to_batch_return = browser.find_element(By.NAME, 'EndBatch')
+    #to_batch_return.send_keys(Keys.RETURN)
 
+    search = browser.find_element(By.XPATH, '//input[@value= "Search"]')
+
+    search.send_keys(Keys.RETURN)
+
+    time.sleep(3)
 
     download = browser.find_element(By.NAME, "Download")
     download.send_keys(Keys.RETURN)
-
     #popup
     main_page = browser.current_window_handle
     

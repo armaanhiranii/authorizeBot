@@ -5,13 +5,13 @@ import glob
 
 def get_text():
 
-    mypath = "/Users/armaanhirani/Downloads/*.*"
+    mypath = r"C:\Users\conf.asst5\downloads\*.*"
 
     
     text_file = max(glob.glob(mypath), key=os.path.getmtime)
 
     return text_file
 
-print(get_text())
+
 
 

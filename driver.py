@@ -1,6 +1,7 @@
 from selenium_bot import authorize_bot
 from get_text_file import get_text
 
-if __name__ == “main”:
+if __name__ == "__main__":
     authorize_bot()
-    get_text()
+    print(get_text())
+    print('done')
