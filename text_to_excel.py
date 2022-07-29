@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-def text_to_funstuff(file):
+def text_to_funstuff(file, excel_file):
     
     count = 0
     df = pd.read_csv(file, usecols = ['Transaction ID', 'Invoice Number',
@@ -22,16 +22,25 @@ def text_to_funstuff(file):
         else:
             df.iloc[count, 10] = df.iloc[count, 4] + df.iloc[count, 10]
             count += 1
-    df.drop(['Total Amount', 'Method'], axis= 'columns', inplace = True )
-
-    df[['Invoice Number', 'Booking Number']] = df['Invoice Number'].str.split('|', expand=True)
-    df[['Conference Name', 'Names']] = df['Invoice Description'].str.split('-', expand=True)
-    df['Submit Date/Time'] = pd.to_datetime(df['Submit Date/Time'])
-    df['Submit Date/Time'] = df['Submit Date/Time'].dt.strftime('%m-%d-%Y')
-    print(df.head())
     
-    return df
+    #print(df['Invoice Number'])
+    
+    #print(df['Names'])
+    df[['Invoice Number', 'Booking Number']] = df['Invoice Number'].str.split('|', expand=True)
+    df[['Invoice Description', 'Names']] = df['Invoice Description'].str.split(' - ', expand=True)
+    df['Submit Date/Time'] = pd.to_datetime(df['Submit Date/Time'])
+    df['Submit Date/Time'] = df['Submit Date/Time'].dt.strftime('%m/%d/%Y')
+    df.drop(['Total Amount', 'Method', 'Name', 'Invoice Number'], axis= 'columns', inplace = True )
+    
+    final_df = df.reindex(['Transaction ID','Booking Number','Names',
+    'Invoice Description', 'Account#', 'Account Name', 'Source', 
+    'Submit Date/Time', 'Visa/Mastercard', 'Amex'], axis=1)
 
-text_to_funstuff(r"C:\Users\conf.asst5\Downloads\Download20220728-051226.txt")
+    with pd.ExcelWriter(excel_file, engine='openpyxl', mode='a', if_sheet_exists = 'new') as writer: 
+     final_df.to_excel(writer)
+    
+    return final_df
+
+
 
 
