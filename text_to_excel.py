@@ -10,4 +10,4 @@ def text_to_funstuff(file):
 
 text_to_funstuff('/Users/armaanhirani/Downloads/Download20220711-022758.txt')
 
-print('done')
+print('donzo')
