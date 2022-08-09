@@ -2,16 +2,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-#from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import Select
 import time
-#import glob
-#import os.path
 
-def authorize_bot():
+def authorize_bot(driver):
 
-    s = Service(r"C:\Users\conf.asst5\Desktop\authorize_bot_clone\authorizeBot\chromedriver.exe")
+    s = Service(driver)
     browser = webdriver.Chrome(service=s)
     url = 'https://login.authorize.net/'
     browser.get(url)
